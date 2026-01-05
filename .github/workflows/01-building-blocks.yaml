@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: success steps
         run: |
-          eche 'i will successed'
+          echo 'i will successed'
           exit 0
       - name: say goodbye
         run: echo 'good bye'
