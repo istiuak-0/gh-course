@@ -6,7 +6,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
+      - name: Checkout
         uses: actions/checkout@v6.0.1
-      - name: log file names
-        run: ls -a
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version: 'latest'
+      - name: Install Dependecies
+        run: npm ci
+        working-directory: 04-using-actions
+        
