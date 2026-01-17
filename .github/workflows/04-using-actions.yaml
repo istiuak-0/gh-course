@@ -5,6 +5,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 04-using-actions
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.1
@@ -18,4 +21,5 @@ jobs:
           version: latest
       - name: Install Dependecies
         run: pnpm install --frozen-lockfile
-        working-directory: 04-using-actions
+      - name: Run Unit Tests
+        run: pnpm test
