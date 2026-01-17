@@ -1,7 +1,8 @@
 name: contexts
 
-on: push
-
+on:
+  - push
+  - workflow_dispatch
 jobs:
   echo-data:
     runs-on: ubuntu-latest
@@ -16,4 +17,4 @@ jobs:
           echo "run id ${{ github.run_id}}"
       - name: retrive variables
         run: |
-         echo "variables: ${{ vars.MY_VAR }}"
+          echo "variables: ${{ vars.MY_VAR }}"
