@@ -1,0 +1,23 @@
+name: expressions
+
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        default: false
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: '[debug] print startt up'
+        if: ${{inputs.debug}}
+        run: |
+          echo "Triggered by ${{github.event_name}}"
+          echo "${{runner.os}}"
+      - name: '[debug] printing when triggered form main'
+        if: ${{inputs.debug && github.ref == 'refs/heads/main'}}
+        run: echo "its triggered from main"
